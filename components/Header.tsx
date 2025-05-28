@@ -60,7 +60,7 @@ const Header = () => {
                         <input
                             type="search"
                             placeholder="بحث عن"
-                            className="border border-accent rounded-md pl-10 pr-3 py-1 focus:outline-none focus:ring-2 focus:ring-primary bg-white/10 text-primary placeholder:text-accent"
+                            className="w-full border border-accent rounded-md pl-10 pr-3 py-1 focus:outline-none focus:ring-2 focus:ring-primary bg-white/10 text-primary placeholder:text-accent"
                         />
                         {/* Search icon positioned inside the input */}
                         <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-accent" />
