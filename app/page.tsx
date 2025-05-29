@@ -1,3 +1,4 @@
+import About from "@/components/About";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Products from "@/components/Products";
@@ -18,6 +19,12 @@ export default function Home() {
         className="w-full py-6 px-6"
       >
         <Products />
+      </section>
+      <section
+        id='about'
+        className="w-full py-6 px-6"
+      >
+        <About />
       </section>
     </div>
   );
