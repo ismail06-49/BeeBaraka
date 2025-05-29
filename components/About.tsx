@@ -1,6 +1,6 @@
 const About = () => {
     return (
-        <section id="about" className="max-w-4xl mx-auto my-20 px-6 py-12 bg-card rounded-2xl shadow-lg text-center">
+        <section id="about" className="max-w-4xl mx-auto mt-20 px-6 py-12 bg-card rounded-2xl shadow-lg text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">من نحن</h2>
             <p className="text-lg md:text-xl text-foreground mb-6 leading-relaxed">
                 <span className="font-semibold text-accent">BeeBaraka</span> هو متجر مغربي متخصص في تقديم أجود المنتجات الطبيعية الأصيلة: 

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Honey from '@/public/honey.jpg';
+import Link from "next/link";
 
 const Hero = () => {
     return (
@@ -23,12 +24,12 @@ const Hero = () => {
                     منتجات طبيعية مختارة بعناية من قلب المغرب
                 </p>
                 <div className="flex flex-col md:flex-row gap-4 justify-center md:justify-end">
-                    <button className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold text-lg shadow hover:bg-accent hover:text-accent-foreground transition-colors duration-200 cursor-pointer">
+                    <Link href='#product' className="bg-primary text-primary-foreground border-2 border-accent hover:border-primary px-8 py-3 rounded-lg font-semibold text-lg shadow hover:bg-accent hover:text-accent-foreground transition-colors duration-200 cursor-pointer">
                         تسوق الآن
-                    </button>
-                    <a href="#about" className="bg-accent text-accent-foreground px-8 py-3 rounded-lg font-semibold text-lg shadow hover:bg-primary hover:text-primary-foreground transition-colors duration-200 cursor-pointer">
+                    </Link>
+                    <Link href="#about" className="bg-accent text-accent-foreground border-2 border-primary hover:border-accent px-8 py-3 rounded-lg font-semibold text-lg shadow hover:bg-primary hover:text-primary-foreground transition-colors duration-200 cursor-pointer">
                         تعرف علينا
-                    </a>
+                    </Link>
                 </div>
             </div>
             {/* Image */}

@@ -43,7 +43,7 @@ const Products = () => {
     const [selected, setSelected] = useState<null | typeof products[0]>(null);
 
     return (
-        <section className="py-10 bg-background" id="product">
+        <section className="mt-20 bg-background" id="product">
             <h2 className="text-3xl font-bold text-primary mb-10 text-center">منتجاتنا</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-6xl mx-auto px-4">
                 {products.map((product) => (
