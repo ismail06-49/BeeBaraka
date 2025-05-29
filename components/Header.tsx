@@ -31,20 +31,20 @@ const Header = () => {
                     {menuOpen ? <X className='size-6' /> : <AlignJustify className='size-6' />}
                 </button>
                 {/* Navigation links */}
-                <ul className={`mx-auto flex gap-4 ${menuOpen ? "block" : "hidden md:flex"}`}>
+                <ul className={`mx-auto flex gap-4 md:gap-6 ${menuOpen ? "block" : "hidden md:flex"}`}>
                     <li className="font-normal py-2 text-foreground text-lg hover:text-primary border-t-4 border-t-transparent hover:border-t-4 hover:bg-accent/5 hover:border-t-accent cursor-pointer transition-colors">
                         <Link href='#home'>
                             الرئيسية
                         </Link>
                     </li>
                     <li className="font-normal py-2 text-foreground text-lg hover:text-primary border-t-4 border-t-transparent hover:border-t-4 hover:bg-accent/5 hover:border-t-accent cursor-pointer transition-colors">
-                        <Link href='#about'>
-                            معلومات عنا
+                        <Link href='#product'>
+                            منتجاتنا
                         </Link>
                     </li>
                     <li className="font-normal py-2 text-foreground text-lg hover:text-primary border-t-4 border-t-transparent hover:border-t-4 hover:bg-accent/5 hover:border-t-accent cursor-pointer transition-colors">
-                        <Link href='#product'>
-                            منتجاتنا
+                        <Link href='#about'>
+                            معلومات عنا
                         </Link>
                     </li>
                     <li className="font-normal py-2 text-foreground text-lg hover:text-primary border-t-4 border-t-transparent hover:border-t-4 hover:bg-accent/5 hover:border-t-accent cursor-pointer transition-colors">
