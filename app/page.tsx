@@ -1,5 +1,5 @@
 import About from "@/components/About";         // About Us section
-import Contact from "@/components/contact";      // Contact section
+import Contact from "@/components/Contact";      // Contact section
 import Footer from "@/components/Footer";        // Footer component
 import Header from "@/components/Header";        // Header/navigation bar
 import Hero from "@/components/Hero";            // Hero/banner section
