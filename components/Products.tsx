@@ -40,19 +40,26 @@ const products = [
 ];
 
 const Products = () => {
+    // State to track the selected product for the modal
     const [selected, setSelected] = useState<null | typeof products[0]>(null);
 
     return (
+        // Main products section container
         <section className="mt-20 bg-background" id="product">
+            {/* Section title */}
             <h2 className="text-3xl font-bold text-primary mb-10 text-center">منتجاتنا</h2>
+            
+            {/* Products grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-6xl mx-auto px-4">
                 {products.map((product) => (
+                    // Product card button
                     <button
                         key={product.id}
                         className="bg-card rounded-xl shadow-lg p-6 flex flex-col items-center hover:shadow-2xl hover:scale-105 transition-all cursor-pointer border border-transparent hover:border-accent"
                         onClick={() => setSelected(product)}
                         aria-label={`عرض ${product.name}`}
                     >
+                        {/* Product image */}
                         <Image
                             src={product.image}
                             alt={product.name}
@@ -60,32 +67,39 @@ const Products = () => {
                             height={120}
                             className="mb-4 size-32 rounded-lg object-contain bg-white"
                         />
+                        {/* Product name */}
                         <h3 className="text-xl font-semibold text-foreground mb-2">{product.name}</h3>
+                        {/* Product price */}
                         <span className="text-lg text-accent font-bold">{product.price}</span>
                     </button>
                 ))}
             </div>
 
-            {/* Modal */}
+            {/* Modal for product details */}
             {selected && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm">
                     <div className="bg-card rounded-2xl shadow-2xl p-8 max-w-md w-full relative text-center">
+                        {/* Close button */}
                         <button
-                        className="absolute top-4 left-4 text-accent text-2xl font-bold hover:text-primary transition"
-                        onClick={() => setSelected(null)}
-                        aria-label="إغلاق"
+                            className="absolute top-4 left-4 text-accent text-2xl font-bold hover:text-primary transition"
+                            onClick={() => setSelected(null)}
+                            aria-label="إغلاق"
                         >
                             <X />
                         </button>
+                        {/* Modal product image */}
                         <Image
-                        src={selected.image}
-                        alt={selected.name}
-                        width={160}
-                        height={160}
-                        className="mx-auto mb-4 rounded-lg object-contain bg-white"
+                            src={selected.image}
+                            alt={selected.name}
+                            width={160}
+                            height={160}
+                            className="mx-auto mb-4 rounded-lg object-contain bg-white"
                         />
+                        {/* Modal product name */}
                         <h3 className="text-2xl font-bold text-primary mb-2">{selected.name}</h3>
+                        {/* Modal product price */}
                         <span className="text-lg text-accent font-bold mb-4 block">{selected.price}</span>
+                        {/* Modal product benefits */}
                         <p className="text-foreground text-base">{selected.benefits}</p>
                     </div>
                 </div>

@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BeeBaraka
 
-## Getting Started
+BeeBaraka is a modern, responsive e-commerce website for selling premium Moroccan honey, natural oils, and authentic Amlou. The site blends a traditional Moroccan feel with a modern user experience, using a custom color palette inspired by vibrant honey gold and royal green.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 🛒 **Product Catalog**: Browse natural honey, oils, and Amlou with detailed cards and pop-up benefits.
+- 🎨 **Modern-Traditional Design**: Elegant color palette with royal green and honey gold.
+- 🌙 **Dark/Light Mode**: Seamless color transitions for all users.
+- 📱 **Responsive Layout**: Looks great on mobile, tablet, and desktop.
+- 📝 **About Us**: Learn about BeeBaraka’s mission and values.
+- 📦 **Contact Card**: Easy-to-use contact form and business info.
+- 🧩 **Reusable Components**: Modular React components for easy maintenance.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Installation & Setup
 
-## Learn More
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/yourusername/beebaraka.git
+   cd beebaraka
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+2. **Install dependencies:**
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Run the development server:**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. **Open your browser:**
+   ```
+   http://localhost:3000
+   ```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Usage
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Browse the homepage to see featured products.
+- Click on any product card to view its benefits in a pop-up modal.
+- Use the navigation bar to explore About Us and Contact sections.
+- Fill out the contact form to send a message to BeeBaraka.
+
+---
+
+## Technologies Used
+
+- [Next.js](https://nextjs.org/) (React Framework)
+- [Tailwind CSS](https://tailwindcss.com/) (Utility-first CSS)
+- [OKLCH Colors](https://oklch.com/) (Modern color palette)
+- [Lucide Icons](https://lucide.dev/) (Icon library)
+- [TypeScript](https://www.typescriptlang.org/)
+
+---
+
+## Contribution Guidelines
+
+1. Fork the repository.
+2. Create a new branch: `git checkout -b feature/your-feature`
+3. Commit your changes: `git commit -m 'Add your feature'`
+4. Push to the branch: `git push origin feature/your-feature`
+5. Open a Pull Request.
+
+All contributions are welcome! Please keep code clean and follow the existing style.
+
+---
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---

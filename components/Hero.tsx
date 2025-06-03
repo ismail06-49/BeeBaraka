@@ -2,27 +2,35 @@ import Image from "next/image";
 import Honey from '@/public/honey.jpg';
 import Link from "next/link";
 
+// Hero section component
 const Hero = () => {
     return (
+        // Main hero section container with background, spacing, and layout
         <section className="relative bg-card mt-24 w-full max-w-6xl mx-auto rounded-2xl shadow-xl flex flex-col md:flex-row items-center justify-between px-8 py-16 gap-12 overflow-hidden">
-            {/* Decorative background pattern */}
+            
+            {/* Decorative background pattern with gradients and blurred circles */}
             <div className="absolute inset-0 pointer-events-none z-0">
                 <div className="w-full h-full bg-gradient-to-br from-primary/10 via-accent/10 to-transparent opacity-80" />
                 <div className="absolute top-10 left-10 w-32 h-32 rounded-full bg-accent/20 blur-2xl" />
                 <div className="absolute bottom-10 right-10 w-40 h-40 rounded-full bg-primary/20 blur-2xl" />
             </div>
-            {/* Text content */}
+            
+            {/* Text content: badge, title, description, and call-to-action buttons */}
             <div className="flex-1 z-10 text-center md:text-right">
+                {/* Authenticity badge */}
                 <span className="inline-block mb-4 px-4 py-1 rounded-full bg-accent text-accent-foreground font-semibold text-base shadow-sm">
                     جودة مغربية أصيلة
                 </span>
+                {/* Main title */}
                 <h1 className="text-4xl md:text-5xl font-extrabold text-primary mb-6 drop-shadow-sm">
                     BeeBaraka
                 </h1>
+                {/* Description */}
                 <p className="text-xl md:text-2xl text-foreground mb-8 font-medium leading-relaxed">
                     عسل طبيعي، زيوت طبيعية، وأملو أصيل<br />
                     منتجات طبيعية مختارة بعناية من قلب المغرب
                 </p>
+                {/* Call-to-action buttons */}
                 <div className="flex flex-col md:flex-row gap-4 justify-center md:justify-end">
                     <Link href='#product' className="bg-primary text-primary-foreground border-2 border-accent hover:border-primary px-8 py-3 rounded-lg font-semibold text-lg shadow hover:bg-accent hover:text-accent-foreground transition-colors duration-200 cursor-pointer">
                         تسوق الآن
@@ -32,7 +40,8 @@ const Hero = () => {
                     </Link>
                 </div>
             </div>
-            {/* Image */}
+            
+            {/* Product image with custom hexagonal clip-path */}
             <div className="flex-1 flex justify-center z-10">
                 <Image
                     src={Honey}
