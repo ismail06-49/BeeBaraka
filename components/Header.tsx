@@ -4,13 +4,18 @@ import { AlignJustify, Moon, Search, ShoppingCart, Sun, X } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useState } from "react";
 
+type HeaderProps = {
+    lang: 'ar' | 'en';
+    setLang: (lang: 'ar' | 'en') => void;
+};
+
 // Header component for the store's main navigation and announcement bar
-const Header = () => {
+const Header = ({ lang, setLang }: HeaderProps) => {
     // State for mobile menu toggle
     const [menuOpen, setMenuOpen] = useState(false);
     // State for dark mode toggle
     const [dark, setDark] = useState(true);
-    
+
     // Effect to add/remove dark mode class on body
     useEffect(() => {
         if (dark) {
@@ -39,28 +44,24 @@ const Header = () => {
                 
                 {/* Navigation links */}
                 <ul className={`mx-auto flex gap-4 md:gap-6 ${menuOpen ? "block" : "hidden md:flex"}`}>
-                    {/* Home link */}
                     <li className="font-normal py-2 text-foreground text-lg hover:text-primary border-t-4 border-t-transparent hover:border-t-4 hover:bg-accent/5 hover:border-t-accent cursor-pointer transition-colors">
                         <Link href='#home'>
-                            الرئيسية
+                            {lang === 'ar' ? 'الرئيسية' : 'Home'}
                         </Link>
                     </li>
-                    {/* Products link */}
                     <li className="font-normal py-2 text-foreground text-lg hover:text-primary border-t-4 border-t-transparent hover:border-t-4 hover:bg-accent/5 hover:border-t-accent cursor-pointer transition-colors">
                         <Link href='#product'>
-                            منتجاتنا
+                            {lang === 'ar' ? 'منتجاتنا' : 'Products'}
                         </Link>
                     </li>
-                    {/* About link */}
                     <li className="font-normal py-2 text-foreground text-lg hover:text-primary border-t-4 border-t-transparent hover:border-t-4 hover:bg-accent/5 hover:border-t-accent cursor-pointer transition-colors">
                         <Link href='#about'>
-                            معلومات عنا
+                            {lang === 'ar' ? 'معلومات عنا' : 'About Us'}
                         </Link>
                     </li>
-                    {/* Contact link */}
                     <li className="font-normal py-2 text-foreground text-lg hover:text-primary border-t-4 border-t-transparent hover:border-t-4 hover:bg-accent/5 hover:border-t-accent cursor-pointer transition-colors">
                         <Link href='#contact'>
-                            اتصل بنا
+                            {lang === 'ar' ? 'اتصل بنا' : 'Contact'}
                         </Link>
                     </li>
                 </ul>
@@ -71,7 +72,7 @@ const Header = () => {
                     <div className="relative">
                         <input
                             type="search"
-                            placeholder="بحث عن"
+                            placeholder={lang === 'ar' ? "بحث عن" : "Search"}
                             className="w-full border border-accent rounded-md pl-10 pr-3 py-1 focus:outline-none focus:ring-2 focus:ring-primary bg-white/10 text-primary placeholder:text-accent"
                         />
                         {/* Search icon positioned inside the input */}
@@ -83,8 +84,17 @@ const Header = () => {
                     <button
                         onClick={() => setDark((d) => !d)}
                         className="w-6 h-6 text-accent hover:text-primary cursor-pointer transition-colors duration-200"
+                        aria-label="Toggle dark mode"
                     >
                         {dark ? <Sun /> : <Moon />}
+                    </button>
+                    {/* Language toggle button */}
+                    <button
+                        onClick={() => setLang(lang === 'ar' ? 'en' : 'ar')}
+                        className="px-3 py-1 rounded-md bg-accent text-accent-foreground font-semibold hover:bg-primary hover:text-primary-foreground transition-colors"
+                        aria-label="Change language"
+                    >
+                        {lang === 'ar' ? 'EN' : 'AR'}
                     </button>
                 </div>
             </nav>
@@ -92,4 +102,4 @@ const Header = () => {
     )
 }
 
-export default Header
+export default Header;
