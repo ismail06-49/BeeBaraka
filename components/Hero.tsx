@@ -2,8 +2,12 @@ import Image from "next/image";
 import Honey from '@/public/honey.jpg';
 import Link from "next/link";
 
+type HeroProps = {
+    lang: 'ar' | 'en';
+};
+
 // Hero section component
-const Hero = () => {
+const Hero = ({ lang }: HeroProps) => {
     return (
         // Main hero section container with background, spacing, and layout
         <section className="relative bg-card mt-24 w-full max-w-6xl mx-auto rounded-2xl shadow-xl flex flex-col md:flex-row items-center justify-between px-8 py-16 gap-12 overflow-hidden">
@@ -16,10 +20,10 @@ const Hero = () => {
             </div>
             
             {/* Text content: badge, title, description, and call-to-action buttons */}
-            <div className="flex-1 z-10 text-center md:text-right">
+            <div className="flex-1 z-10 text-center">
                 {/* Authenticity badge */}
                 <span className="inline-block mb-4 px-4 py-1 rounded-full bg-accent text-accent-foreground font-semibold text-base shadow-sm">
-                    جودة مغربية أصيلة
+                    {lang === 'ar' ? 'جودة مغربية أصيلة' : 'Authentic Moroccan Quality'}
                 </span>
                 {/* Main title */}
                 <h1 className="text-4xl md:text-5xl font-extrabold text-primary mb-6 drop-shadow-sm">
@@ -27,16 +31,18 @@ const Hero = () => {
                 </h1>
                 {/* Description */}
                 <p className="text-xl md:text-2xl text-foreground mb-8 font-medium leading-relaxed">
-                    عسل طبيعي، زيوت طبيعية، وأملو أصيل<br />
-                    منتجات طبيعية مختارة بعناية من قلب المغرب
+                    {lang === 'ar'
+                        ? <>عسل طبيعي، زيوت طبيعية، وأملو أصيل<br />منتجات طبيعية مختارة بعناية من قلب المغرب</>
+                        : <>Pure honey, natural oils, and authentic Amlou.<br />Carefully selected natural products from the heart of Morocco.</>
+                    }
                 </p>
                 {/* Call-to-action buttons */}
-                <div className="flex flex-col md:flex-row gap-4 justify-center md:justify-end">
+                <div className="flex flex-col md:flex-row gap-4 justify-center">
                     <Link href='#product' className="bg-primary text-primary-foreground border-2 border-accent hover:border-primary px-8 py-3 rounded-lg font-semibold text-lg shadow hover:bg-accent hover:text-accent-foreground transition-colors duration-200 cursor-pointer">
-                        تسوق الآن
+                        {lang === 'ar' ? 'تسوق الآن' : 'Shop Now'}
                     </Link>
                     <Link href="#about" className="bg-accent text-accent-foreground border-2 border-primary hover:border-accent px-8 py-3 rounded-lg font-semibold text-lg shadow hover:bg-primary hover:text-primary-foreground transition-colors duration-200 cursor-pointer">
-                        تعرف علينا
+                        {lang === 'ar' ? 'تعرف علينا' : 'About Us'}
                     </Link>
                 </div>
             </div>

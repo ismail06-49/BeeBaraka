@@ -1,3 +1,6 @@
+'use client';
+
+import { useState, useEffect } from "react";
 import About from "@/components/About";         // About Us section
 import Contact from "@/components/Contact";      // Contact section
 import Footer from "@/components/Footer";        // Footer component
@@ -7,18 +10,28 @@ import Products from "@/components/Products";    // Products listing
 
 // Main homepage component
 export default function Home() {
+
+  // State for language and direction
+  const [lang, setLang] = useState<'ar' | 'en'>('ar');
+
+  // Update html lang and dir attributes when lang changes
+  useEffect(() => {
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  }, [lang]);
+
   return (
     // Main container with background, text color, and spacing
     <div className="min-h-screen bg-background text-foreground transition-colors duration-300 space-y-10">
       {/* Site header/navigation */}
-      <Header />
+      <Header lang={lang} setLang={setLang} />
 
       {/* Hero section (main banner) */}
       <section
         id='home'
         className="w-full pt-6 px-6"
       >
-        <Hero />
+        <Hero lang={lang} />
       </section>
 
       {/* Products section */}
@@ -26,7 +39,7 @@ export default function Home() {
         id='product'
         className="w-full pt-6 px-6"
       >
-        <Products />
+        <Products lang={lang} />
       </section>
 
       {/* About Us section */}
@@ -34,7 +47,7 @@ export default function Home() {
         id='about'
         className="w-full pt-6 px-6"
       >
-        <About />
+        <About lang={lang} />
       </section>
 
       {/* Contact section */}
@@ -42,11 +55,11 @@ export default function Home() {
         id='contact'
         className="w-full pt-6 px-6"
       >
-        <Contact />
+        <Contact lang={lang} />
       </section>
 
       {/* Footer */}
-      <Footer />
+      <Footer lang={lang} />
     </div>
   );
 }
