@@ -52,9 +52,9 @@ const Hero = ({ lang }: HeroProps) => {
                 <Image
                     src={Honey}
                     alt="BeeBaraka Honey"
-                    width={340}
-                    height={340}
-                    className="[clip-path:polygon(25%_0%,_75%_0%,_100%_50%,_75%_100%,_25%_100%,_0%_50%)]"
+                    width={380}
+                    height={380}
+                    className="aspect-square [clip-path:polygon(50%_0,_100%_30%,_100%_70%,_50%_100%,_0_70%,_0_30%)]"
                     priority
                 />
             </div>
