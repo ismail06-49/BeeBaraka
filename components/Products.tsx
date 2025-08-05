@@ -9,6 +9,7 @@ import { X } from "lucide-react";
 
 type ProductsProps = {
     lang: 'ar' | 'en';
+    currency: 'MAD' | 'CAD';
 };
 
 // Example product data
@@ -17,28 +18,40 @@ const productsData = {
         {
             id: 1,
             name: "عسل طبيعي",
-            price: "120 درهم",
+            price: {
+                MAD: "120 درهم مغربي",
+                CAD: "18 دولار كندي"
+            }, 
             image: I1,
             benefits: "يعزز المناعة، مصدر طبيعي للطاقة، مفيد للجهاز الهضمي.",
         },
         {
             id: 2,
             name: "زيت أركان",
-            price: "150 درهم",
+            price: {
+                MAD: "150 درهم مغربي",
+                CAD: "23 دولار كندي"
+            },
             image: I2,
             benefits: "يرطب البشرة والشعر، غني بفيتامين E، مضاد للأكسدة.",
         },
         {
             id: 3,
             name: "زيت الزيتون",
-            price: "110 درهم",
+            price: {
+                MAD: "110 درهم مغربي",
+                CAD: "17 دولار كندي"
+            },
             image: I3,
             benefits: "يرطب البشرة والشعر، غني بفيتامين E، مضاد للأكسدة.",
         },
         {
             id: 4,
             name: "أملو مغربي",
-            price: "90 درهم",
+            price: {
+                MAD: "90 درهم مغربي",
+                CAD: "14 دولار كندي"
+            },
             image: I4,
             benefits: "مصدر للطاقة، غني بالفيتامينات والمعادن، طعم لذيذ وصحي.",
         },
@@ -47,35 +60,47 @@ const productsData = {
         {
             id: 1,
             name: "Pure Honey",
-            price: "120 MAD",
+            price: {
+                MAD: "120 MAD",
+                CAD: "18 CAD"
+            },
             image: I1,
             benefits: "Boosts immunity, natural energy source, good for digestion.",
         },
         {
             id: 2,
             name: "Argan Oil",
-            price: "150 MAD",
+            price: {
+                MAD: "150 MAD",
+                CAD: "23 CAD"
+            },
             image: I2,
             benefits: "Moisturizes skin and hair, rich in vitamin E, antioxidant.",
         },
         {
             id: 3,
             name: "Olive Oil",
-            price: "110 MAD",
+            price: {
+                MAD: "110 MAD",
+                CAD: "17 CAD"
+            },
             image: I3,
             benefits: "Moisturizes skin and hair, rich in vitamin E, antioxidant.",
         },
         {
             id: 4,
             name: "Moroccan Amlou",
-            price: "90 MAD",
+            price: {
+                MAD: "90 MAD",
+                CAD: "14 CAD"
+            },
             image: I4,
             benefits: "Energy source, rich in vitamins and minerals, delicious and healthy.",
         },
     ]
 };
 
-const Products = ({ lang }: ProductsProps) => {
+const Products = ({ lang, currency }: ProductsProps) => {
     // State to track the selected product for the modal
     const [selected, setSelected] = useState<null | typeof productsData.ar[0]>(null);
 
@@ -106,7 +131,9 @@ const Products = ({ lang }: ProductsProps) => {
                             className="mb-4 size-32 rounded-lg object-contain bg-white"
                         />
                         <h3 className="text-xl font-semibold text-foreground mb-2">{product.name}</h3>
-                        <span className="text-lg text-accent font-bold">{product.price}</span>
+                        <span className="text-lg text-accent font-bold">
+                            {product.price[currency]}
+                        </span>
                     </button>
                 ))}
             </div>
@@ -130,7 +157,7 @@ const Products = ({ lang }: ProductsProps) => {
                             className="mx-auto mb-4 rounded-lg object-contain bg-white"
                         />
                         <h3 className="text-2xl font-bold text-primary mb-2">{selected.name}</h3>
-                        <span className="text-lg text-accent font-bold mb-4 block">{selected.price}</span>
+                        <span className="text-lg text-accent font-bold mb-4 block">{selected.price[currency]}</span>
                         <p className="text-foreground text-base">{selected.benefits}</p>
                     </div>
                 </div>

@@ -14,6 +14,9 @@ export default function Home() {
   // State for language and direction
   const [lang, setLang] = useState<'ar' | 'en'>('ar');
 
+  // State for currency, defaulting to Moroccan Dirham (MAD)
+  const [currency, setCurrency] = useState<'MAD' | 'CAD'>('MAD');
+
   // Update html lang and dir attributes when lang changes
   useEffect(() => {
     document.documentElement.lang = lang;
@@ -24,7 +27,7 @@ export default function Home() {
     // Main container with background, text color, and spacing
     <div className="min-h-screen bg-background text-foreground transition-colors duration-300 space-y-10">
       {/* Site header/navigation */}
-      <Header lang={lang} setLang={setLang} />
+      <Header lang={lang} setLang={setLang} currency={currency} setCurrency={setCurrency} />
 
       {/* Hero section (main banner) */}
       <section
@@ -39,7 +42,7 @@ export default function Home() {
         id='product'
         className="w-full pt-6 px-6"
       >
-        <Products lang={lang} />
+        <Products lang={lang}  currency={currency} />
       </section>
 
       {/* About Us section */}
