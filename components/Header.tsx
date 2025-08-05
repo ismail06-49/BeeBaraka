@@ -1,20 +1,24 @@
 'use client';
 
-import { AlignJustify, Moon, Search, ShoppingCart, Sun, X } from 'lucide-react';
+import { AlignJustify, Moon, Search, ShoppingCart, Sun, X, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useState } from "react";
 
 type HeaderProps = {
     lang: 'ar' | 'en';
     setLang: (lang: 'ar' | 'en') => void;
+    currency: 'MAD' | 'CAD';
+    setCurrency: (currency: 'MAD' | 'CAD') => void;
 };
 
 // Header component for the store's main navigation and announcement bar
-const Header = ({ lang, setLang }: HeaderProps) => {
+const Header = ({ lang, setLang, currency, setCurrency }: HeaderProps) => {
     // State for mobile menu toggle
     const [menuOpen, setMenuOpen] = useState(false);
     // State for dark mode toggle
     const [dark, setDark] = useState(true);
+
+    const [settingsOpen, setSettingsOpen] = useState(false);
 
     // Effect to add/remove dark mode class on body
     useEffect(() => {
@@ -88,14 +92,55 @@ const Header = ({ lang, setLang }: HeaderProps) => {
                     >
                         {dark ? <Sun /> : <Moon />}
                     </button>
-                    {/* Language toggle button */}
-                    <button
-                        onClick={() => setLang(lang === 'ar' ? 'en' : 'ar')}
-                        className="px-3 py-1 rounded-md bg-accent text-accent-foreground font-semibold hover:bg-primary hover:text-primary-foreground transition-colors"
-                        aria-label="Change language"
-                    >
-                        {lang === 'ar' ? 'EN' : 'AR'}
-                    </button>
+                    <div className="relative">
+                        <button
+                            onClick={() => setSettingsOpen((open) => !open)}
+                            className="px-3 py-1 rounded-md bg-accent text-accent-foreground font-semibold hover:bg-primary hover:text-primary-foreground transition-colors flex items-center gap-1"
+                            aria-label="Open settings menu"
+                        >
+                            {lang === 'ar' ? 'الإعدادات' : 'Settings'}
+                            <ChevronDown className="w-4 h-4" />
+                        </button>
+                        {/* Dropdown menu */}
+                        {settingsOpen && (
+                            <div className={`absolute ${lang === 'ar' ? '-right-10' : 'right-0'} mt-2 w-40 bg-card border border-accent rounded-md shadow-lg z-50 p-4 flex flex-col gap-3`}>
+                                {/* Language selection */}
+                                <div>
+                                    <label className="block text-sm font-medium mb-1 text-foreground">
+                                        {lang === 'ar' ? 'اللغة' : 'Language'}
+                                    </label>
+                                    <select
+                                        value={lang}
+                                        onChange={e => {
+                                            setLang(e.target.value as 'ar' | 'en');
+                                            setSettingsOpen(false); // Close menu after selection
+                                        }} 
+                                        className="w-full rounded-md border border-accent px-2 py-1 bg-background text-foreground"
+                                    >
+                                        <option value="ar">العربية</option>
+                                        <option value="en">English</option>
+                                    </select>
+                                </div>
+                                {/* Currency selection */}
+                                <div>
+                                    <label className="block text-sm font-medium mb-1 text-foreground">
+                                        {lang === 'ar' ? 'العملة' : 'Currency'}
+                                    </label>
+                                    <select
+                                        value={currency}
+                                        onChange={e => {
+                                            setCurrency(e.target.value as 'MAD' | 'CAD');
+                                            setSettingsOpen(false); // Close menu after selection
+                                        }}
+                                        className="w-full rounded-md border border-accent px-2 py-1 bg-background text-foreground"
+                                    >
+                                        <option value="MAD">{lang === 'ar' ? 'درهم مغربي' : 'MAD'}</option>
+                                        <option value="CAD">{lang === 'ar' ? 'دولار كندي' : 'CAD'}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        )}
+                    </div>
                 </div>
             </nav>
         </header>
