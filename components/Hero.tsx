@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Honey from '@/public/honey.jpg';
+import Honey from "@/public/honey.jpg";
 import Link from "next/link";
 
 type HeroProps = {
@@ -11,14 +11,14 @@ const Hero = ({ lang }: HeroProps) => {
     return (
         // Main hero section container with background, spacing, and layout
         <section className="relative bg-card mt-24 w-full max-w-6xl mx-auto rounded-2xl shadow-xl flex flex-col md:flex-row items-center justify-between px-8 py-16 gap-12 overflow-hidden">
-            
+
             {/* Decorative background pattern with gradients and blurred circles */}
             <div className="absolute inset-0 pointer-events-none z-0">
                 <div className="w-full h-full bg-gradient-to-br from-primary/10 via-accent/10 to-transparent opacity-80" />
                 <div className="absolute top-10 left-10 w-32 h-32 rounded-full bg-accent/20 blur-2xl" />
                 <div className="absolute bottom-10 right-10 w-40 h-40 rounded-full bg-primary/20 blur-2xl" />
             </div>
-            
+
             {/* Text content: badge, title, description, and call-to-action buttons */}
             <div className="flex-1 z-10 text-center">
                 {/* Authenticity badge */}
@@ -46,17 +46,62 @@ const Hero = ({ lang }: HeroProps) => {
                     </Link>
                 </div>
             </div>
-            
-            {/* Product image with custom hexagonal clip-path */}
-            <div className="flex-1 flex justify-center z-10">
-                <Image
-                    src={Honey}
-                    alt="BeeBaraka Honey"
-                    width={380}
-                    height={380}
-                    className="aspect-square [clip-path:polygon(50%_0,_100%_30%,_100%_70%,_50%_100%,_0_70%,_0_30%)]"
-                    priority
-                />
+
+            {/* Responsive honeycomb grid */}
+            <div className="relative w-full md:w-1/2 aspect-square max-w-[500px] flex items-center justify-center z-10">
+                <div className="grid grid-cols-3 grid-rows-3 gap-2 sm:gap-3 w-full max-w-[400px]">
+                    {/* Top row - 2 hexagons */}
+                    <div className="col-span-3 grid grid-cols-2 gap-2 sm:gap-3 mx-auto w-2/3">
+                        <div className="relative aspect-square">
+                            <Image
+                                src={Honey}
+                                alt="BeeBaraka Honey"
+                                fill
+                                className="object-cover [clip-path:polygon(50%_0,_100%_30%,_100%_70%,_50%_100%,_0_70%,_0_30%)] transform hover:scale-105 transition-transform duration-300"
+                                priority
+                            />
+                        </div>
+                        <div className="relative aspect-square">
+                            <Image
+                                src={Honey}
+                                alt="BeeBaraka Honey"
+                                fill
+                                className="object-cover [clip-path:polygon(50%_0,_100%_30%,_100%_70%,_50%_100%,_0_70%,_0_30%)] transform hover:scale-105 transition-transform duration-300"
+                                priority
+                            />
+                        </div>
+                    </div>
+
+                    {/* Middle row - 3 hexagons */}
+                    <div className="col-span-3 grid grid-cols-3 gap-2 sm:gap-3">
+                        {[1, 2, 3].map((i) => (
+                            <div key={i} className="relative aspect-square">
+                                <Image
+                                    src={Honey}
+                                    alt="BeeBaraka Honey"
+                                    fill
+                                    className="object-cover [clip-path:polygon(50%_0,_100%_30%,_100%_70%,_50%_100%,_0_70%,_0_30%)] transform hover:scale-105 transition-transform duration-300"
+                                    priority
+                                />
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Bottom row - 2 hexagons */}
+                    <div className="col-span-3 grid grid-cols-2 gap-2 sm:gap-3 mx-auto w-2/3">
+                        {[1, 2].map((i) => (
+                            <div key={i} className="relative aspect-square">
+                                <Image
+                                    src={Honey}
+                                    alt="BeeBaraka Honey"
+                                    fill
+                                    className="object-cover [clip-path:polygon(50%_0,_100%_30%,_100%_70%,_50%_100%,_0_70%,_0_30%)] transform hover:scale-105 transition-transform duration-300"
+                                    priority
+                                />
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </div>
         </section>
     );
